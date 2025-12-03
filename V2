@@ -126,8 +126,8 @@ createButton("Button1", "Instant Steal", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Yohohoho/refs/heads/main/Heheheha"))()
 end)
 
-createButton("Button2", "Admin Mozil", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MoziIOnTop/MoziIHub/refs/heads/main/Ok"))()
+createButton("Button2", "Moreira Script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Morera/refs/heads/main/Morera"))()
 end)
 
 createButton("Button3", "Brainrot Dupe", function()
