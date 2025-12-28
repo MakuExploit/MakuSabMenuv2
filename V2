@@ -135,7 +135,7 @@ createButton("Button3", "Brainrot Dupe", function()
 end)
 
 createButton("Button4", "Admin Command V2", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Admincmdobf/refs/heads/main/admin%20cmd%20obf"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MakuExploit/Cmdmenuonly/refs/heads/main/Cmdmenuonly"))()
 end)
 
 -- Leak Spawner
